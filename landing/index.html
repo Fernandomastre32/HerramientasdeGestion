@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TICO — Software Terapéutico para el Estudio del TDO Infantil</title>
+  <meta name="description" content="TICO une la psicología clínica y la tecnología en una herramienta lúdica para el análisis y seguimiento del Trastorno Desafiante de Oposición (TDO) en niños y adolescentes.">
+  <meta name="keywords" content="TDO, Trastorno Desafiante de Oposición, psicología infantil, videojuego terapéutico, salud mental infantil, TICO, software clínico">
+  <meta name="author" content="Iniciativa TICO">
+  <meta property="og:title" content="TICO — Software Terapéutico para el TDO Infantil">
+  <meta property="og:description" content="Una herramienta tecnológica que transforma el diagnóstico y seguimiento del TDO a través del juego.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress"></div>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar" id="main-nav">
+    <div class="nav-container">
+      <a href="#inicio" class="nav-logo" id="logo-link">
+        <div class="logo-icon-wrap">
+          <svg viewBox="0 0 40 40" width="36" height="36" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="10" width="32" height="22" rx="6" fill="#6FBBB9"/>
+            <circle cx="14" cy="20" r="3" fill="white"/>
+            <circle cx="26" cy="20" r="3" fill="white"/>
+            <rect x="18" y="24" width="4" height="3" rx="1.5" fill="white" opacity="0.8"/>
+            <rect x="12" y="32" width="5" height="3" rx="1.5" fill="#E7AFB5"/>
+            <rect x="23" y="32" width="5" height="3" rx="1.5" fill="#E7AFB5"/>
+            <path d="M17 5 L20 10 L23 5" stroke="#B9D2B1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <span class="logo-text">TICO</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#inicio" class="nav-link active" id="nav-inicio">Inicio</a></li>
+        <li><a href="#tdo" class="nav-link" id="nav-tdo">¿Qué es el TDO?</a></li>
+        <li><a href="#propuesta" class="nav-link" id="nav-propuesta">Propuesta</a></li>
+        <li><a href="#videojuego" class="nav-link" id="nav-videojuego">Videojuego</a></li>
+        <li><a href="#nosotros" class="nav-link" id="nav-nosotros">Quiénes somos</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="#contacto" class="btn btn-primary btn-sm" id="nav-cta-btn">Agendar Demo</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section id="inicio" class="hero-section">
+    <!-- Background elements -->
+    <div class="hero-bg-mesh"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+
+    <!-- Floating decoration images -->
+    <img src="./assets/blocks_left.png" alt="" class="hero-deco-img hero-deco-left" aria-hidden="true">
+    <img src="./assets/blocks_right.png" alt="" class="hero-deco-img hero-deco-right" aria-hidden="true">
+
+    <!-- Floating geometric shapes -->
+    <div class="floating-shape shape-circle-pink" style="top:18%;left:6%;"></div>
+    <div class="floating-shape shape-star-green" style="bottom:28%;left:44%;"></div>
+    <div class="floating-shape shape-ring-aqua" style="top:12%;right:42%;"></div>
+    <div class="floating-shape shape-star-rose" style="top:52%;right:4%;"></div>
+    <div class="dot-grid dot-grid-hero"></div>
+
+    <div class="section-container hero-grid">
+      <div class="hero-content reveal" data-delay="0">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Iniciativa Terapéutica Digital</span>
+        </div>
+        <h1 class="hero-title">
+          Software de apoyo para el
+          <span class="hero-title-highlight">estudio y seguimiento</span>
+          del TDO Infantil
+        </h1>
+        <p class="hero-description">Una herramienta clínica de vanguardia que transforma el diagnóstico y seguimiento del Trastorno Desafiante de Oposición a través de minijuegos interactivos y métricas de comportamiento en tiempo real.</p>
+        <div class="hero-actions">
+          <a href="#videojuego" class="btn btn-primary" id="hero-cta-game">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Ver el Videojuego
+          </a>
+          <a href="#contacto" class="btn btn-ghost" id="hero-cta-demo">Agendar Demo &rarr;</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <span class="trust-num">7.7%</span>
+            <span class="trust-label">prevalencia en México</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-num">5–17</span>
+            <span class="trust-label">años de edad objetivo</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-num">TCC</span>
+            <span class="trust-label">base científica</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media reveal" data-delay="150">
+        <div class="hero-img-container">
+          <div class="hero-img-glow"></div>
+          <img src="./assets/hero_illustration.png" alt="Tico Robot acompañando a un niño en el videojuego terapéutico" class="hero-img">
+          <!-- Floating micro badges on the image -->
+          <div class="hero-float-badge badge-game">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#6FBBB9"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5S14.67 12 15.5 12s1.5.67 1.5 1.5S16.33 15 15.5 15zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 9 18.5 9s1.5.67 1.5 1.5S19.33 12 18.5 12z"/></svg>
+            <span>Juego Terapéutico</span>
+          </div>
+          <div class="hero-float-badge badge-clinical">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#B9D2B1"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+            <span>Métricas Clínicas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Descubre más</span>
+      <div class="scroll-arrow">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATS BAND ===================== -->
+  <div class="stats-band">
+    <div class="section-container stats-grid">
+      <div class="stat-item reveal" data-delay="0">
+        <span class="stat-number" data-target="77">0</span><span class="stat-suffix">%</span>
+        <span class="stat-desc">Niños con TDO sin diagnóstico formal</span>
+      </div>
+      <div class="stat-item reveal" data-delay="100">
+        <span class="stat-number" data-target="6">0</span><span class="stat-suffix">+</span>
+        <span class="stat-desc">Módulos de evaluación conductual</span>
+      </div>
+      <div class="stat-item reveal" data-delay="200">
+        <span class="stat-number" data-target="3">0</span><span class="stat-suffix">x</span>
+        <span class="stat-desc">Más objetivo que la observación clínica tradicional</span>
+      </div>
+      <div class="stat-item reveal" data-delay="300">
+        <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+        <span class="stat-desc">Basado en Terapia Cognitivo-Conductual (TCC)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== TDO IMPACT SECTION ===================== -->
+  <section id="tdo" class="section-padded bg-light">
+    <div class="floating-shape shape-ring-green" style="bottom:10%;right:4%;"></div>
+    <div class="section-container impact-grid">
+      <div class="impact-visual reveal" data-delay="0">
+        <div class="impact-img-wrap">
+          <div class="impact-img-bg-blob"></div>
+          <img src="./assets/clinical_analyst.png" alt="Psicóloga analizando métricas de comportamiento infantil" class="impact-img">
+        </div>
+        <!-- Metric cards floating over image -->
+        <div class="impact-float-card card-top-right reveal" data-delay="200">
+          <div class="float-card-icon bg-aqua">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="#6FBBB9" stroke-width="2" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <div class="float-card-value">7.7%</div>
+            <div class="float-card-label">Prevalencia en México</div>
+          </div>
+        </div>
+        <div class="impact-float-card card-bottom-left reveal" data-delay="300">
+          <div class="float-card-icon bg-rose">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="#E7AFB5" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="float-card-value">5–17 años</div>
+            <div class="float-card-label">Rango de edad crítico</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-content reveal" data-delay="100">
+        <span class="badge badge-rose">Contexto Clínico</span>
+        <h2 class="section-title tl">¿Qué es el TDO y cuál es su impacto?</h2>
+        <p class="section-desc tl">El <strong>Trastorno Desafiante de Oposición (TDO)</strong> es un patrón persistente de conducta hostil, negativista y desobediente hacia figuras de autoridad. En México, afecta silenciosamente a millones de niños que no reciben diagnóstico oportuno.</p>
+
+        <div class="impact-metrics">
+          <div class="impact-metric">
+            <div class="metric-ring-wrap">
+              <svg class="metric-ring" viewBox="0 0 80 80" width="80" height="80">
+                <circle cx="40" cy="40" r="32" fill="none" stroke="#E5ECEB" stroke-width="8"/>
+                <circle class="ring-fill ring-aqua" cx="40" cy="40" r="32" fill="none" stroke="#6FBBB9" stroke-width="8" stroke-dasharray="201" stroke-dashoffset="185" stroke-linecap="round"/>
+              </svg>
+              <span class="metric-val">7.7<span>%</span></span>
+            </div>
+            <div class="metric-text">
+              <strong>Prevalencia Estimada</strong>
+              <p>De niños y adolescentes en México con señales de TDO, muchos sin diagnóstico formal.</p>
+            </div>
+          </div>
+          <div class="impact-metric">
+            <div class="metric-ring-wrap">
+              <svg class="metric-ring" viewBox="0 0 80 80" width="80" height="80">
+                <circle cx="40" cy="40" r="32" fill="none" stroke="#E5ECEB" stroke-width="8"/>
+                <circle class="ring-fill ring-rose" cx="40" cy="40" r="32" fill="none" stroke="#E7AFB5" stroke-width="8" stroke-dasharray="201" stroke-dashoffset="167" stroke-linecap="round"/>
+              </svg>
+              <span class="metric-val">8.6<span>%</span></span>
+            </div>
+            <div class="metric-text">
+              <strong>Grupo de 5–17 Años</strong>
+              <p>La mayor incidencia ocurre en la etapa escolar, donde la intervención oportuna es crucial.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROPUESTA / SERVICIOS ===================== -->
+  <section id="propuesta" class="section-padded services-section">
+    <div class="hero-orb services-orb-1"></div>
+    <div class="hero-orb services-orb-2"></div>
+
+    <div class="section-container">
+      <div class="section-header reveal" data-delay="0">
+        <span class="badge">Nuestra Propuesta</span>
+        <h2 class="section-title">Seis pilares de intervención<br>clínica y tecnológica</h2>
+        <div class="title-divider"></div>
+        <p class="section-subtitle">Unimos la psicología clínica con la interactividad de los videojuegos para crear una experiencia terapéutica integral, objetiva y lúdica.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal" data-delay="0">
+          <div class="service-icon-bg bg-aqua">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#6FBBB9" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M18.5 7.5l-5 5-3-3-5 5"/><circle cx="18.5" cy="7.5" r="1.5" fill="#6FBBB9"/></svg>
+          </div>
+          <h3 class="service-title">Registro en Tiempo Real</h3>
+          <p class="service-desc">Mide y registra métricas precisas de conducta, tiempos de reacción y seguimiento de órdenes mientras el paciente juega.</p>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card reveal" data-delay="80">
+          <div class="service-icon-bg bg-rose">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#E7AFB5" stroke-width="2" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="3"/><circle cx="7" cy="12" r="2" fill="#E7AFB5"/><path d="M15 12h3M16.5 10.5v3" stroke="#E7AFB5"/></svg>
+          </div>
+          <h3 class="service-title">Juego Terapéutico</h3>
+          <p class="service-desc">Entorno de minijuegos lúdicos diseñados científicamente para retar al niño sin generar frustración excesiva.</p>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card reveal" data-delay="160">
+          <div class="service-icon-bg bg-green">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#B9D2B1" stroke-width="2" stroke-linecap="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="17" x2="12" y2="17"/></svg>
+          </div>
+          <h3 class="service-title">Métricas Clínicas</h3>
+          <p class="service-desc">Genera reportes detallados de comportamiento para que los terapeutas analicen la evolución con datos empíricos robustos.</p>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card reveal" data-delay="0">
+          <div class="service-icon-bg bg-aqua">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#6FBBB9" stroke-width="2" stroke-linecap="round"><path d="M12 2a5 5 0 015 5v2a1 1 0 011 1v6a3 3 0 01-3 3H9a3 3 0 01-3-3v-6a1 1 0 011-1V7a5 5 0 015-5z"/><circle cx="9.5" cy="13.5" r="1.5" fill="#6FBBB9"/><circle cx="14.5" cy="13.5" r="1.5" fill="#6FBBB9"/><path d="M11 17h2"/></svg>
+          </div>
+          <h3 class="service-title">Tico, el Robot Amigo</h3>
+          <p class="service-desc">Asistente virtual que genera empatía y rapport con el menor, guiándolo amablemente en cada reto y decisión.</p>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card reveal" data-delay="80">
+          <div class="service-icon-bg bg-rose">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#E7AFB5" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
+          </div>
+          <h3 class="service-title">Entrenamiento de Atención</h3>
+          <p class="service-desc">Ejercicios para modular el control de impulsos, fomentar la tolerancia al error y reforzar la concentración.</p>
+          <div class="service-arrow">→</div>
+        </div>
+
+        <div class="service-card reveal" data-delay="160">
+          <div class="service-icon-bg bg-green">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#B9D2B1" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 11l2 2 4-4"/></svg>
+          </div>
+          <h3 class="service-title">Evidencia Científica</h3>
+          <p class="service-desc">Tratamientos apoyados en metodologías de Terapia Cognitivo-Conductual (TCC) adaptadas a la tecnología actual.</p>
+          <div class="service-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="tc mt-60 reveal" data-delay="0">
+        <a href="#contacto" class="btn btn-outline" id="services-cta">Conocer todos los módulos &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VIDEOJUEGO SECTION ===================== -->
+  <section id="videojuego" class="section-padded bg-light game-section">
+    <div class="floating-shape shape-ring-aqua" style="top:8%;right:8%;"></div>
+    <div class="floating-shape shape-circle-pink" style="bottom:12%;left:6%;"></div>
+
+    <div class="section-container game-grid">
+      <div class="game-content reveal" data-delay="0">
+        <span class="badge badge-aqua">El Videojuego</span>
+        <h2 class="section-title tl">Conoce la aventura<br>de TICO</h2>
+        <p class="section-desc tl">Acompaña a Tico en una divertida aventura llena de colores, retos interactivos y burbujas por explotar. Los niños se sumergen en minijuegos diseñados para evaluar su nivel conductual mientras se divierten:</p>
+
+        <ul class="feature-list">
+          <li class="reveal" data-delay="100">
+            <div class="feature-dot dot-purple"></div>
+            <div>
+              <strong>Variedad de Minijuegos</strong>
+              <p>Desafíos que cambian de dinámica para evaluar adaptación y flexibilidad ante nuevas reglas.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="180">
+            <div class="feature-dot dot-green"></div>
+            <div>
+              <strong>Concentración y Habilidades</strong>
+              <p>Tareas que requieren inhibición de respuestas y control atencional bajo distractores.</p>
+            </div>
+          </li>
+          <li class="reveal" data-delay="260">
+            <div class="feature-dot dot-orange"></div>
+            <div>
+              <strong>Estética de Colores Viva</strong>
+              <p>Diseño optimizado para capturar el interés del niño sin sobrecargas sensoriales.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="mt-40">
+          <a href="#contacto" class="btn btn-primary" id="game-demo-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Ver Demo del Juego
+          </a>
+        </div>
+      </div>
+
+      <!-- Interactive Bubble Game Simulator -->
+      <div class="game-media reveal" data-delay="200">
+        <div class="game-device-wrap">
+          <div class="game-device-screen" id="bubble-game-screen">
+            <div class="game-topbar">
+              <div class="game-score-display">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#6FBBB9"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                Puntos: <strong id="game-score">0</strong>
+              </div>
+              <button class="game-restart-btn" id="restart-game-btn">↺ Reiniciar</button>
+            </div>
+
+            <div class="game-play-area" id="bubble-game-area">
+              <!-- Intro overlay -->
+              <div class="game-overlay" id="game-start-overlay">
+                <div class="overlay-inner">
+                  <div class="overlay-robot">
+                    <svg viewBox="0 0 100 120" width="80" height="80">
+                      <rect x="15" y="30" width="70" height="55" rx="15" fill="#6FBBB9"/>
+                      <circle cx="35" cy="52" r="8" fill="white"/>
+                      <circle cx="65" cy="52" r="8" fill="white"/>
+                      <circle cx="35" cy="52" r="3.5" fill="#2E3A3F"/>
+                      <circle cx="65" cy="52" r="3.5" fill="#2E3A3F"/>
+                      <rect x="40" y="70" width="20" height="8" rx="4" fill="white"/>
+                      <rect x="5" y="45" width="10" height="20" rx="5" fill="#519E9C"/>
+                      <rect x="85" y="45" width="10" height="20" rx="5" fill="#519E9C"/>
+                      <path d="M40 10 L50 28 L60 10" stroke="#B9D2B1" stroke-width="5" stroke-linecap="round" fill="none"/>
+                      <circle cx="50" cy="8" r="8" fill="#E7AFB5"/>
+                      <!-- Floating bubbles around robot -->
+                      <circle cx="10" cy="20" r="7" fill="rgba(179,136,255,0.5)" stroke="#B388FF" stroke-width="1.5"/>
+                      <circle cx="88" cy="25" r="5" fill="rgba(129,199,132,0.5)" stroke="#81C784" stroke-width="1.5"/>
+                      <circle cx="20" cy="100" r="6" fill="rgba(255,183,77,0.5)" stroke="#FFB74D" stroke-width="1.5"/>
+                    </svg>
+                  </div>
+                  <h3>¡Prueba el Juego de Tico!</h3>
+                  <p>Haz clic en las burbujas antes de que lleguen arriba. ¡Pon a prueba tu concentración!</p>
+                  <button class="btn btn-primary btn-sm" id="start-game-btn">¡Jugar Ahora!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Device frame decorations -->
+          <div class="device-shadow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STICKY SCROLL SCREENSHOTS ===================== -->
+  <section class="sticky-section" id="screenshots-section">
+    <div class="sticky-inner">
+      <div class="scroll-carousel-wrap">
+        <!-- Left: Text + Indicators -->
+        <div class="scroll-text-col reveal" data-delay="0">
+          <span class="badge badge-aqua">Secuencia del Juego</span>
+          <h2 class="sticky-title">La Aventura Completa de TICO</h2>
+          <p class="sticky-desc">Desplázate hacia abajo para ver cómo progresa el videojuego desde la pantalla de inicio hasta el reporte clínico final.</p>
+
+          <div class="scroll-indicators" id="scroll-indicators">
+            <div class="scroll-indicator active" data-step="0">
+              <div class="indicator-track">
+                <div class="indicator-fill"></div>
+              </div>
+              <div class="indicator-label">
+                <span class="indicator-num">01</span>
+                <span>Pantalla de Inicio</span>
+              </div>
+            </div>
+            <div class="scroll-indicator" data-step="1">
+              <div class="indicator-track"><div class="indicator-fill"></div></div>
+              <div class="indicator-label">
+                <span class="indicator-num">02</span>
+                <span>Bienvenida de Tico</span>
+              </div>
+            </div>
+            <div class="scroll-indicator" data-step="2">
+              <div class="indicator-track"><div class="indicator-fill"></div></div>
+              <div class="indicator-label">
+                <span class="indicator-num">03</span>
+                <span>Instrucciones del Reto</span>
+              </div>
+            </div>
+            <div class="scroll-indicator" data-step="3">
+              <div class="indicator-track"><div class="indicator-fill"></div></div>
+              <div class="indicator-label">
+                <span class="indicator-num">04</span>
+                <span>Mecánica de Burbujas</span>
+              </div>
+            </div>
+            <div class="scroll-indicator" data-step="4">
+              <div class="indicator-track"><div class="indicator-fill"></div></div>
+              <div class="indicator-label">
+                <span class="indicator-num">05</span>
+                <span>Refuerzo Positivo</span>
+              </div>
+            </div>
+            <div class="scroll-indicator" data-step="5">
+              <div class="indicator-track"><div class="indicator-fill"></div></div>
+              <div class="indicator-label">
+                <span class="indicator-num">06</span>
+                <span>Progreso del Niño</span>
+              </div>
+            </div>
+            <div class="scroll-indicator" data-step="6">
+              <div class="indicator-track"><div class="indicator-fill"></div></div>
+              <div class="indicator-label">
+                <span class="indicator-num">07</span>
+                <span>Puntuación y Métricas</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Device with changing screenshots -->
+        <div class="scroll-device-col">
+          <div class="tablet-frame">
+            <div class="tablet-screen-wrap">
+              <div class="tablet-screenshots" id="tablet-screenshots">
+                <img src="./assets/screenshot_7.jpg" alt="Pantalla de inicio TICO" class="tab-slide active" data-idx="0">
+                <img src="./assets/screenshot_6.jpg" alt="Bienvenida Hola soy Tico" class="tab-slide" data-idx="1">
+                <img src="./assets/screenshot_1.jpg" alt="Instrucciones del juego" class="tab-slide" data-idx="2">
+                <img src="./assets/screenshot_2.jpg" alt="Reventar burbujas" class="tab-slide" data-idx="3">
+                <img src="./assets/screenshot_3.jpg" alt="Excelente sigue así" class="tab-slide" data-idx="4">
+                <img src="./assets/screenshot_4.jpg" alt="Ya casi falta poco" class="tab-slide" data-idx="5">
+                <img src="./assets/screenshot_5.jpg" alt="Puntuaciones finales" class="tab-slide" data-idx="6">
+              </div>
+              <div class="tablet-caption" id="tablet-caption">
+                <div class="caption-dot"></div>
+                <span id="caption-text">Pantalla de inicio: Conoce a Tico el robot amigo</span>
+              </div>
+            </div>
+          </div>
+          <div class="tablet-shadow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="testimonials-section section-padded">
+    <div class="section-container">
+      <div class="testimonial-card reveal" data-delay="0">
+        <div class="testimonial-bg-decor"></div>
+        <div class="testimonial-dots top-right"></div>
+        <div class="testimonial-dots bottom-left"></div>
+
+        <div class="testimonial-header">
+          <h2 class="testimonial-title">Lo que dicen los especialistas</h2>
+          <div class="title-divider divider-white"></div>
+        </div>
+
+        <div class="testimonial-slider-wrap">
+          <div class="testimonial-slide active" id="t-slide-1">
+            <div class="t-slide-grid">
+              <div class="t-person">
+                <div class="t-avatar-ring">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="Dra. Sofía Valenzuela" class="t-avatar">
+                </div>
+                <div class="t-meta">
+                  <h3>Dra. Sofía Valenzuela</h3>
+                  <p>Terapeuta de Neurodesarrollo Infantil</p>
+                  <div class="t-stars">★★★★★</div>
+                </div>
+              </div>
+              <div class="t-quote">
+                <div class="quote-mark">"</div>
+                <p>Tico ha transformado la manera en que realizamos el seguimiento clínico. Los niños acuden contentos a jugar en la tablet mientras nosotros obtenemos métricas objetivas de su tolerancia a la frustración y obediencia, eliminando sesgos de observación.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide" id="t-slide-2">
+            <div class="t-slide-grid">
+              <div class="t-person">
+                <div class="t-avatar-ring">
+                  <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=200&auto=format&fit=crop" alt="Dr. Carlos Mendoza" class="t-avatar">
+                </div>
+                <div class="t-meta">
+                  <h3>Dr. Carlos Mendoza</h3>
+                  <p>Neuropsiquiatra Pediátrico</p>
+                  <div class="t-stars">★★★★★</div>
+                </div>
+              </div>
+              <div class="t-quote">
+                <div class="quote-mark">"</div>
+                <p>Medir el TDO de manera objetiva siempre ha sido un reto en consultorio. Con TICO, vemos el comportamiento del niño en tiempo real, lo que nos facilita tomar decisiones clínicas basadas en evidencia concreta.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide" id="t-slide-3">
+            <div class="t-slide-grid">
+              <div class="t-person">
+                <div class="t-avatar-ring">
+                  <img src="https://images.unsplash.com/photo-1594824813573-246434de83fb?q=80&w=200&auto=format&fit=crop" alt="Dra. Andrea Luján" class="t-avatar">
+                </div>
+                <div class="t-meta">
+                  <h3>Dra. Andrea Luján</h3>
+                  <p>Directora de Clínica Psicológica Infantil</p>
+                  <div class="t-stars">★★★★★</div>
+                </div>
+              </div>
+              <div class="t-quote">
+                <div class="quote-mark">"</div>
+                <p>El reporte conductual que arroja el software es sumamente claro. Nos permite entablar comunicación más fluida con los padres y la escuela para estructurar el plan de intervención personalizado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-controls">
+          <button class="t-arrow" id="prev-btn" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="t-dots" id="t-dots">
+            <button class="t-dot active" data-idx="0" aria-label="Testimonio 1"></button>
+            <button class="t-dot" data-idx="1" aria-label="Testimonio 2"></button>
+            <button class="t-dot" data-idx="2" aria-label="Testimonio 3"></button>
+          </div>
+          <button class="t-arrow" id="next-btn" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT US ===================== -->
+  <section id="nosotros" class="section-padded bg-light">
+    <div class="section-container">
+      <div class="section-header reveal" data-delay="0">
+        <span class="badge">¿Quiénes somos?</span>
+        <h2 class="section-title">La unión de Tecnología<br>y Psicología</h2>
+        <div class="title-divider"></div>
+        <p class="section-subtitle">Un equipo interdisciplinario comprometido con el desarrollo social y la salud mental de los niños en edad escolar.</p>
+      </div>
+
+      <div class="about-card reveal" data-delay="100">
+        <div class="about-content">
+          <p>Somos un equipo que une el poder de la informática interactiva con las mejores metodologías de la terapia psicológica infantil. Nuestra misión es dotar a terapeutas y padres de una herramienta diagnóstica interactiva y lúdica capaz de medir y registrar parámetros conductuales objetivos en tiempo real.</p>
+          <p>Diseñamos este software convencidos de que las terapias tradicionales de observación pueden complementarse con datos digitales cuantitativos, facilitando un tratamiento adaptativo de acuerdo al progreso clínico de cada niño.</p>
+          <div class="about-bullets">
+            <div class="about-bullet">
+              <div class="bullet-check">
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="white" stroke-width="3" fill="none"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span>Tratamiento basado en evidencia clínica digital</span>
+            </div>
+            <div class="about-bullet">
+              <div class="bullet-check">
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="white" stroke-width="3" fill="none"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span>Minimización de sesgos de observación tradicionales</span>
+            </div>
+            <div class="about-bullet">
+              <div class="bullet-check">
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="white" stroke-width="3" fill="none"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <span>Intervención divertida y empática para el menor</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-pillars">
+          <div class="pillar-card pillar-aqua">
+            <div class="pillar-icon">💻</div>
+            <h4>Tecnología</h4>
+            <p>Desarrollo de mecánicas lúdicas, backend robusto y algoritmos de seguimiento conductual.</p>
+          </div>
+          <div class="pillar-card pillar-rose">
+            <div class="pillar-icon">🧠</div>
+            <h4>Psicología</h4>
+            <p>Validación de metodologías terapéuticas y análisis de comportamiento infantil.</p>
+          </div>
+          <div class="pillar-card pillar-green">
+            <div class="pillar-icon">📊</div>
+            <h4>Evidencia</h4>
+            <p>Generación de reportes clínicos objetivos para decisiones basadas en datos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ARTICLES ===================== -->
+  <section class="section-padded articles-section">
+    <div class="section-container">
+      <div class="section-header reveal" data-delay="0">
+        <span class="badge">Recursos</span>
+        <h2 class="section-title">Artículos de interés y novedades</h2>
+        <div class="title-divider"></div>
+        <p class="section-subtitle">Mantente informado con investigaciones recientes, consejos terapéuticos y noticias del ámbito de la salud mental infantil.</p>
+      </div>
+
+      <div class="articles-grid">
+        <article class="article-card reveal" data-delay="0">
+          <div class="article-img-wrap">
+            <img src="./assets/article_tdo.png" alt="Entendiendo el TDO en niños" class="article-img">
+            <div class="article-tag-overlay">Salud Mental</div>
+          </div>
+          <div class="article-body">
+            <h3 class="article-title">Entendiendo el Trastorno Desafiante de Oposición (TDO)</h3>
+            <p class="article-excerpt">Conoce cuáles son las señales tempranas de alerta del TDO y cómo distinguirlo de conductas naturales en las etapas del desarrollo escolar.</p>
+            <a href="#contacto" class="article-link" id="article-link-1">Leer más <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="article-card reveal" data-delay="100">
+          <div class="article-img-wrap">
+            <img src="./assets/article_gaming.png" alt="El rol del videojuego en la terapia infantil" class="article-img">
+            <div class="article-tag-overlay">Gamificación</div>
+          </div>
+          <div class="article-body">
+            <h3 class="article-title">El rol del videojuego terapéutico en la terapia infantil</h3>
+            <p class="article-excerpt">La gamificación y la interactividad permiten establecer mayor compromiso y motivación en el niño, revolucionando la intervención clínica.</p>
+            <a href="#contacto" class="article-link" id="article-link-2">Leer más <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="article-card reveal" data-delay="200">
+          <div class="article-img-wrap">
+            <img src="./assets/article_metrics.png" alt="Métricas de conducta y datos clínicos" class="article-img">
+            <div class="article-tag-overlay">Evidencia Clínica</div>
+          </div>
+          <div class="article-body">
+            <h3 class="article-title">Métricas de conducta: el valor de los datos clínicos</h3>
+            <p class="article-excerpt">Cómo la obtención de métricas precisas permite evaluar y ajustar el tratamiento personalizado basado en evidencia real.</p>
+            <a href="#contacto" class="article-link" id="article-link-3">Leer más <span>→</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="tc mt-60 reveal" data-delay="0">
+        <a href="#contacto" class="btn btn-outline" id="articles-cta">Ver todos los artículos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT / CTA ===================== -->
+  <section id="contacto" class="section-padded contact-section">
+    <div class="contact-orb contact-orb-1"></div>
+    <div class="contact-orb contact-orb-2"></div>
+
+    <div class="section-container contact-grid">
+      <div class="contact-info reveal" data-delay="0">
+        <span class="badge badge-rose">Colabora con Nosotros</span>
+        <h2 class="contact-title">Alianzas que<br><span>transforman</span></h2>
+        <p class="contact-desc">Buscamos conectar con mentes creativas, escuelas, psicólogos y organizaciones que compartan nuestro deseo de mejorar la salud mental infantil a través de la tecnología.</p>
+        <p class="contact-desc">Si nuestra visión resuena con tu práctica clínica o institución escolar, exploremos juntos cómo llevar la iniciativa a más niños.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="#6FBBB9" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <strong>Correo electrónico</strong>
+            <a href="mailto:soytico.support@gmail.com">soytico.support@gmail.com</a>
+          </div>
+        </div>
+
+        <!-- Decorative trust logos / badges -->
+        <div class="contact-trust-badges">
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="#6FBBB9" stroke-width="2" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Datos seguros</span>
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="#B9D2B1" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+            <span>Respuesta en 24h</span>
+          </div>
+          <div class="trust-badge">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="#E7AFB5" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Sin costo inicial</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal" data-delay="200">
+        <div class="contact-form-card" id="contact-card">
+          <h3>Formulario de Contacto</h3>
+          <p>Envíanos un mensaje y te responderemos a la brevedad.</p>
+
+          <form id="alliance-form" novalidate>
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <div class="form-field-wrap">
+                <svg class="form-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ej. Dra. María López" required>
+              </div>
+              <span class="error-msg" id="nombre-error">Por favor, introduce tu nombre.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <div class="form-field-wrap">
+                <svg class="form-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Ej. maria@clinica.com" required>
+              </div>
+              <span class="error-msg" id="email-error">Por favor, introduce un correo electrónico válido.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="area">Área de interés</label>
+              <div class="form-field-wrap">
+                <svg class="form-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <input type="text" id="area" name="area" class="form-control" placeholder="Ej. Psicología Clínica / Institución" required>
+              </div>
+              <span class="error-msg" id="area-error">Por favor, introduce tu área de interés.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" class="form-control textarea-ctrl" rows="4" placeholder="¿Cómo te gustaría colaborar con Tico?..." required></textarea>
+              <span class="error-msg" id="mensaje-error">Por favor, escribe un breve mensaje.</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Enviar Mensaje</button>
+
+            <div class="form-success" id="form-success">
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="#388E3C" stroke-width="2.5" fill="none"><polyline points="20 6 9 17 4 12"/></svg>
+              ¡Formulario enviado! Nos pondremos en contacto muy pronto. 🚀
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="main-footer">
+    <div class="footer-top-wave">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#1A2225"/>
+      </svg>
+    </div>
+    <div class="section-container footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="footer-logo">
+          <svg viewBox="0 0 40 40" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="10" width="32" height="22" rx="6" fill="white" opacity="0.95"/>
+            <circle cx="14" cy="20" r="3" fill="#6FBBB9"/>
+            <circle cx="26" cy="20" r="3" fill="#6FBBB9"/>
+            <rect x="18" y="24" width="4" height="3" rx="1.5" fill="#6FBBB9" opacity="0.8"/>
+            <rect x="12" y="32" width="5" height="3" rx="1.5" fill="#E7AFB5"/>
+            <rect x="23" y="32" width="5" height="3" rx="1.5" fill="#E7AFB5"/>
+          </svg>
+          <span class="logo-text text-white">TICO</span>
+        </a>
+        <p class="footer-desc">Software clínico lúdico que fusiona tecnología y psicología cognitiva para la medición e intervención del Trastorno Desafiante de Oposición (TDO) en la infancia.</p>
+        <div class="footer-socials">
+          <a href="mailto:soytico.support@gmail.com" class="social-link" aria-label="Email" id="footer-email-link">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+        <p class="footer-copy">&copy; 2026 TICO Project. Todos los derechos reservados.</p>
+      </div>
+
+      <div class="footer-nav-col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#tdo">¿Qué es el TDO?</a></li>
+          <li><a href="#propuesta">Nuestra Propuesta</a></li>
+          <li><a href="#videojuego">Videojuego Tico</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-nav-col">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="#nosotros">Quiénes somos</a></li>
+          <li><a href="#contacto">Contacto de Alianzas</a></li>
+          <li><a href="mailto:soytico.support@gmail.com">Soporte Médico</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-decor-col">
+        <h4>Contacto</h4>
+        <p>soytico.support@gmail.com</p>
+        <p class="footer-slogan">Tecnología y psicología unidas para mejorar la conducta infantil.</p>
+        <div class="footer-block-decor">
+          <img src="./assets/blocks_left.png" alt="" class="footer-block footer-block-l" aria-hidden="true">
+          <img src="./assets/blocks_right.png" alt="" class="footer-block footer-block-r" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== TICO CHAT WIDGET ===================== -->
+  <div class="tico-widget" id="tico-widget">
+    <div class="tico-dialog" id="tico-dialog">
+      <button class="tico-close" id="tico-close" aria-label="Cerrar">&times;</button>
+      <p id="tico-msg">¡Hola! Soy Tico, tu robot amigo. ¿Tienes alguna pregunta?</p>
+    </div>
+    <button class="tico-btn" id="tico-btn" aria-label="Asistente Tico">
+      <svg viewBox="0 0 100 120" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="28" width="80" height="60" rx="16" fill="#6FBBB9"/>
+        <circle cx="33" cy="52" r="10" fill="white"/>
+        <circle cx="67" cy="52" r="10" fill="white"/>
+        <circle cx="33" cy="52" r="4" fill="#2E3A3F"/>
+        <circle cx="67" cy="52" r="4" fill="#2E3A3F"/>
+        <rect x="40" y="74" width="20" height="8" rx="4" fill="white"/>
+        <rect x="0" y="42" width="10" height="22" rx="5" fill="#519E9C"/>
+        <rect x="90" y="42" width="10" height="22" rx="5" fill="#519E9C"/>
+        <path d="M42 8 L50 26 L58 8" stroke="#B9D2B1" stroke-width="6" stroke-linecap="round" fill="none"/>
+        <circle cx="50" cy="6" r="8" fill="#E7AFB5"/>
+      </svg>
+      <span class="tico-pulse"></span>
+    </button>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
